@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from "firebase/auth";
 import app from "../firebase/Firebase._init_";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -9,11 +9,17 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const provider = new GoogleAuthProvider();
 
     // register user
     const signUp = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
+    }
+    // Enter via google
+    const googleSingIn = () => {
+        setLoading(true)
+        return signInWithPopup(auth, provider)
     }
     // Update user
     const updateUser = (updatedDoc) => {
@@ -37,7 +43,8 @@ const AuthProvider = ({ children }) => {
         setLoading,
         setUser,
         signUp,
-        updateUser,        
+        updateUser,
+        googleSingIn    
     }
     return (
         <AuthContext.Provider value={globalValue}>

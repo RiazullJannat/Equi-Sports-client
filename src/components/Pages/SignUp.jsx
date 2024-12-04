@@ -5,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
+
 const SignUp = () => {
-    const {signUp, setUser, updateUser, setLoading} = useContext(AuthContext)
+    const { signUp, setUser, updateUser, setLoading, googleSingIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,23 +17,29 @@ const SignUp = () => {
         const email = form.get('email');
         const password = form.get('password');
         signUp(email, password)
-        .then(res=>{
-            setUser(res.user)
-            updateUser({ displayName: name, photoURL: photo })
-            .then(()=>{
-                navigate('/');
+            .then(res => {
+                setUser(res.user)
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        navigate('/');
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             })
             .catch(error => {
+                setLoading(false)
                 console.log(error)
-            })            
-        })
-        .catch(error=>{
-            setLoading(false)
-            console.log(error)
-        })
+            })
     }
     const handleGoogleSignIn = () => {
-        
+        googleSingIn()
+            .then(()=>{
+                navigate('/')
+            })
+            .catch(error=>{
+                console.log(error)
+            })
     }
     return (
         <div className="flex justify-center items-center min-h-screen ">
