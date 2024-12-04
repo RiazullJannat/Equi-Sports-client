@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/Firebase._init_";
+import { toast } from "react-toastify";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
@@ -25,16 +26,27 @@ const AuthProvider = ({ children }) => {
     const updateUser = (updatedDoc) => {
         return updateProfile(auth.currentUser, updatedDoc)
     }
+    // LogOut
+    const logout = () => {
+        setLoading(true)
+        signOut(auth)
+            .then(() => {
+                toast.success('logged out.')
+            })
+            .catch(error => {
+                toast.error(error)
+            })
+    }
     // Current User
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, currentUser=>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
         })
-        return ()=>{
+        return () => {
             unSubscribe()
         }
-    },[])
+    }, [])
 
     // global data
     const globalValue = {
@@ -44,7 +56,8 @@ const AuthProvider = ({ children }) => {
         setUser,
         signUp,
         updateUser,
-        googleSingIn    
+        googleSingIn,
+        logout
     }
     return (
         <AuthContext.Provider value={globalValue}>

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-    const { currentUser } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
     // Define navigation links
     const links = (
@@ -14,7 +14,7 @@ const Navbar = () => {
             <NavLink to="/allEquipments" className={({ isActive }) => (isActive ? "active btn-ghost" : "btn-ghost")}>
                 <li>All Sports Equipments</li>
             </NavLink>
-            {currentUser && (
+            {user && (
                 <>
                     <NavLink to="/addEquipments" className={({ isActive }) => (isActive ? "active btn-ghost" : "btn-ghost")}>
                         <li>Add Equipments</li>
@@ -63,10 +63,19 @@ const Navbar = () => {
 
             {/* Navbar end: Action button */}
             <div className="navbar-end">
-                {currentUser ? (
-                    <button className="btn btn-error" onClick={() => console.log("Logout action")}>
-                        Logout
-                    </button>
+                {user ? (
+                    <div className="navbar-start">
+                        <div className="dropdown">
+                            <button tabIndex={0} className="p-2 btn-ghost border-3 border-red-600 rounded-full">
+                                <img className="h-14 w-14 rounded-full" src={user.photoURL?user.photoURL:"https://i.ibb.co.com/GtRSfPc/profile.png"} />
+                            </button>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                <li onClick={logout}>Log Out</li>
+                            </ul>
+                        </div>
+                    </div>
                 ) : (
                     <div className="flex gap-3 ">
                         <NavLink to="/signIn" className="">
