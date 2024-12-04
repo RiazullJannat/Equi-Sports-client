@@ -1,19 +1,44 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import app from "../firebase/Firebase._init_";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
-const AuthProvider = ({children}) => {
-
+const auth = getAuth(app);
+const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
-    const [currentUser, setCurrentUser] = useState(null);
+    const [user, setUser] = useState(null);
+
+    // register user
+    const signUp = (email, password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+    // Update user
+    const updateUser = (updatedDoc) => {
+        return updateProfile(auth.currentUser, updatedDoc)
+    }
+    // Current User
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth, currentUser=>{
+            setUser(currentUser);
+            setLoading(false);
+        })
+        return ()=>{
+            unSubscribe()
+        }
+    },[])
+
+    // global data
     const globalValue = {
         loading,
-        currentUser,
+        user,
         setLoading,
-        setCurrentUser
+        setUser,
+        signUp,
+        updateUser,        
     }
-
     return (
         <AuthContext.Provider value={globalValue}>
             {children}
@@ -21,7 +46,7 @@ const AuthProvider = ({children}) => {
     );
 };
 AuthProvider.propTypes = {
-    children:PropTypes.node.isRequired
-  };
+    children: PropTypes.node.isRequired
+};
 
 export default AuthProvider;

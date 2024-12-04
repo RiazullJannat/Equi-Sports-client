@@ -1,10 +1,35 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
 
 const SignUp = () => {
-    const handleSubmit = () => {
-
+    const {signUp, setUser, updateUser, setLoading} = useContext(AuthContext)
+    const navigate = useNavigate();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = new FormData(event.target);
+        const name = form.get('name');
+        const photo = form.get('photoUrl');
+        const email = form.get('email');
+        const password = form.get('password');
+        signUp(email, password)
+        .then(res=>{
+            setUser(res.user)
+            updateUser({ displayName: name, photoURL: photo })
+            .then(()=>{
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error)
+            })            
+        })
+        .catch(error=>{
+            setLoading(false)
+            console.log(error)
+        })
     }
     const handleGoogleSignIn = () => {
         
