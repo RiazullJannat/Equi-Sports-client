@@ -1,17 +1,38 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
-const links = <>
-<NavLink><li>Home</li></NavLink>
-<NavLink><li>All Sports Equipments</li></NavLink>
-<NavLink><li>Add Equipments</li></NavLink>
-<NavLink><li>My Equipments</li></NavLink>
-</>
 const Navbar = () => {
+    const { currentUser } = useContext(AuthContext);
+
+    // Define navigation links
+    const links = (
+        <>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "active btn-ghost" : "btn-ghost")}>
+                <li>Home</li>
+            </NavLink>
+            <NavLink to="/allEquipments" className={({ isActive }) => (isActive ? "active btn-ghost" : "btn-ghost")}>
+                <li>All Sports Equipments</li>
+            </NavLink>
+            {currentUser && (
+                <>
+                    <NavLink to="/addEquipments" className={({ isActive }) => (isActive ? "active btn-ghost" : "btn-ghost")}>
+                        <li>Add Equipments</li>
+                    </NavLink>
+                    <NavLink to="/myEquipments" className={({ isActive }) => (isActive ? "active btn-ghost" : "btn-ghost")}>
+                        <li>My Equipments</li>
+                    </NavLink>
+                </>
+            )}
+        </>
+    );
+
     return (
         <div className="navbar bg-base-100">
+            {/* Navbar start: Branding and dropdown */}
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <button tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -22,9 +43,10 @@ const Navbar = () => {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
                         </svg>
-                    </div>
+                    </button>
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
@@ -33,13 +55,29 @@ const Navbar = () => {
                 </div>
                 <a className="btn btn-ghost text-xl">Sports Equipments</a>
             </div>
+
+            {/* Navbar center: Links */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {links}
-                </ul>
+                <ul className="menu menu-horizontal px-1 flex gap-3">{links}</ul>
             </div>
+
+            {/* Navbar end: Action button */}
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {currentUser ? (
+                    <button className="btn btn-error" onClick={() => console.log("Logout action")}>
+                        Logout
+                    </button>
+                ) : (
+                    <div className="flex gap-3 ">
+                        <NavLink to="/signIn" className="">
+                            SignIn
+                        </NavLink>
+                        or
+                        <NavLink to="/signUp" className="">
+                            SignUp
+                        </NavLink>
+                    </div >
+                )}
             </div>
         </div>
     );
