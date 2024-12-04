@@ -1,10 +1,13 @@
+import { Outlet } from "react-router-dom"
+import Navbar from "./components/Navbar"
 
 
 function App() {
   return (
-    <>
-      <h1 className="text-6xl border border-red-600">SPORTS EQUIPMENTS</h1>
-    </>
+    <div>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+    </div>
   )
 }
 
