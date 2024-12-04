@@ -14,6 +14,7 @@ import MyEquipments from './components/Pages/MyEquipments.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import SignIn from './components/Pages/SignIn.jsx';
 import SignUp from './components/Pages/SignUp.jsx';
+import Error from './components/Pages/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         element:<SignUp></SignUp>
       }
     ]
+  },
+  {
+    path:'*',
+    element:<Error></Error>
   }
 ]);
 
