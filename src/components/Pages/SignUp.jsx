@@ -3,11 +3,13 @@ import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 
 
 const SignUp = () => {
     const { signUp, setUser, updateUser, setLoading, googleSingIn } = useContext(AuthContext)
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,6 +18,9 @@ const SignUp = () => {
         const photo = form.get('photoUrl');
         const email = form.get('email');
         const password = form.get('password');
+        if(!passwordRegex.test(password)){
+            toast.error('Add a valid password!')
+        }
         signUp(email, password)
             .then(res => {
                 setUser(res.user)

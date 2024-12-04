@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/Firebase._init_";
 import { toast } from "react-toastify";
 
@@ -25,6 +25,11 @@ const AuthProvider = ({ children }) => {
     // Update user
     const updateUser = (updatedDoc) => {
         return updateProfile(auth.currentUser, updatedDoc)
+    }
+    // Login
+    const logIn = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password)
     }
     // LogOut
     const logout = () => {
@@ -57,7 +62,8 @@ const AuthProvider = ({ children }) => {
         signUp,
         updateUser,
         googleSingIn,
-        logout
+        logout,
+        logIn
     }
     return (
         <AuthContext.Provider value={globalValue}>

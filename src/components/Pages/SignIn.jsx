@@ -1,17 +1,38 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignIn = () => {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
-    const handleLogin = () => {
-
+    const { logIn, setUser, googleSingIn } = useContext(AuthContext);
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = new FormData(event.target);
+        const email = form.get('email');
+        const password = form.get('password');
+        logIn(email, password)
+            .then((res)=>{
+                setUser(res.user);
+                event.target.reset();
+                navigate('/')
+            })
+            .catch(error=>{
+                console.log(error)
+            })
     }
     const handleGoogleSignIn = () => {
-
+        googleSingIn()
+        .then(()=>{
+            navigate('/')
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
     return (
         <div className="flex items-center justify-center min-h-screen ">
