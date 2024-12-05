@@ -1,7 +1,53 @@
-
+import { useContext } from "react";
+import Swal from "sweetalert2";
+import 'sweetalert2/src/sweetalert2.scss'
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const AddEquipments = () => {
-    function handleSubmit (event) {
+    const {user} = useContext(AuthContext);
+    function handleSubmit(event) {
         event.preventDefault();
+        const form = new FormData(event.target);
+        const imageUrl = form.get('imageUrl');
+        const itemName = form.get('itemName');
+        const categoryName = form.get('categoryName')
+        const description = form.get('description')
+        const price = form.get('price')
+        const rating = form.get('rating')
+        const customization = form.get('customization')
+        const processingTime = form.get('processingTime')
+        const stockStatus = form.get('stockStatus')
+        const email = user.email
+        const product = {email, imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus }
+        fetch('http://localhost:4000/addEquipments', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    event.target.reset();
+                    Swal.fire({
+                        title: "Successfully added to the equipment list.",
+                        showClass: {
+                            popup: `
+                            animate__animated
+                            animate__fadeInUp
+                            animate__faster
+                          `
+                        },
+                        hideClass: {
+                            popup: `
+                            animate__animated
+                            animate__fadeOutDown
+                            animate__faster
+                          `
+                        }
+                    });
+                }
+            })
     }
     return (
         <div className="flex justify-center items-center min-h-screen">
@@ -19,7 +65,7 @@ const AddEquipments = () => {
                                 name="imageUrl"
                                 className="input input-bordered w-full "
                                 placeholder="Enter image URL"
-                                
+
                             />
                         </div>
 
@@ -33,7 +79,7 @@ const AddEquipments = () => {
                                 name="itemName"
                                 className="input input-bordered w-full"
                                 placeholder="Enter item name"
-                                
+
                             />
                         </div>
 
@@ -47,7 +93,7 @@ const AddEquipments = () => {
                                 name="categoryName"
                                 className="input input-bordered w-full"
                                 placeholder="Enter category name"
-                                
+
                             />
                         </div>
 
@@ -60,7 +106,7 @@ const AddEquipments = () => {
                                 name="description"
                                 className="textarea textarea-bordered w-full"
                                 placeholder="Enter description"
-                                
+
                             />
                         </div>
 
@@ -74,7 +120,7 @@ const AddEquipments = () => {
                                 name="price"
                                 className="input input-bordered w-full"
                                 placeholder="Enter price"
-                               
+
                             />
                         </div>
 
