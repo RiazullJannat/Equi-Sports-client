@@ -63,30 +63,29 @@ const Navbar = () => {
 
             {/* Navbar end: Action button */}
             <div className="navbar-end">
-                {user ? (
-                    <div className="navbar-start">
-                        <div className="dropdown">
+                <div className="navbar-start">
+                    {
+                        user ? <div className="dropdown">
                             <button tabIndex={0} className="p-2 btn-ghost border-3 border-red-600 rounded-full">
-                                <img className="h-14 w-14 rounded-full" src={user.photoURL?user.photoURL:"https://i.ibb.co.com/GtRSfPc/profile.png"} />
+                                <img className="h-14 w-14 rounded-full" src={user.photoURL ? user.photoURL : "https://i.ibb.co.com/GtRSfPc/profile.png"} />
                             </button>
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                <li onClick={logout}>Log Out</li>
+                                <li onClick={logout} className="btn z-50">Log Out</li>
                             </ul>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="flex gap-3 ">
-                        <NavLink to="/signIn" className="">
-                            SignIn
-                        </NavLink>
-                        or
-                        <NavLink to="/signUp" className="">
-                            SignUp
-                        </NavLink>
-                    </div >
-                )}
+                        </div> : 
+                        <div className="flex gap-3 ">
+                            <NavLink to="/signIn" className="">
+                                SignIn
+                            </NavLink>
+                            or
+                            <NavLink to="/signUp" className="">
+                                SignUp
+                            </NavLink>
+                        </div >
+                    }
+                </div>
             </div>
         </div>
     );

@@ -1,9 +1,8 @@
 
-
 const MyEquipments = () => {
     return (
         <div>
-            My Equipments 
+            hello from my
         </div>
     );
 };

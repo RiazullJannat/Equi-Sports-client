@@ -2,7 +2,7 @@
 const AllEquipments = () => {
     return (
         <div>
-            allEquipments
+            hello from all
         </div>
     );
 };

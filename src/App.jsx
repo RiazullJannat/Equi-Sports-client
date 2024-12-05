@@ -6,10 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div>
+    <div className="container mx-auto overflow-hidden">
       <Navbar></Navbar>
-      <Outlet></Outlet>
       <ToastContainer></ToastContainer>
+      <Outlet></Outlet>
     </div>
   )
 }
