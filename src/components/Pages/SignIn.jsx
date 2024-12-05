@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdEyeOff } from "react-icons/io";
@@ -37,7 +36,6 @@ const SignIn = () => {
     }
     return (
         <div className="flex items-center justify-center min-h-screen ">
-            <Helmet><title>CareerCounseling | SignIn</title></Helmet>
             <div className="w-full max-w-sm glass rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
                     Login to Your Account

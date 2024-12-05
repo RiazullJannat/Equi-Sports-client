@@ -2,7 +2,6 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllEquipments = () => {
     const allEquipments = useLoaderData();
-    console.log(allEquipments)
     return (
         <div>
             <h3>All Equipments</h3>

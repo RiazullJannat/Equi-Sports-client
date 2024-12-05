@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader:()=>fetch('banner.json')
+        loader:()=>fetch('/banner.json')
       },
       {
         path: '/allEquipments',
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allEquipments/:id',
-        element:<Details></Details>,
+        element:<Private><Details></Details></Private>,
         loader:({params})=>fetch(`http://localhost:4000/allEquipments/${params.id}`)
       }
     ]

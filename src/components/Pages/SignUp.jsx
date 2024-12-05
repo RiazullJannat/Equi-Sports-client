@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -48,7 +47,6 @@ const SignUp = () => {
     }
     return (
         <div className="flex justify-center items-center min-h-screen ">
-            <Helmet><title>CareerCounseling | SignUp</title></Helmet>
             <div className="w-full max-w-md  shadow-md rounded-lg p-6 glass">
                 <h2 className="text-2xl font-semibold text-center mb-6">Register your account</h2>
                 <form onSubmit={handleSubmit}>
