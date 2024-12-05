@@ -3,10 +3,11 @@ import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdEyeOff } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignIn = () => {
+    const location = useLocation();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const { logIn, setUser, googleSingIn } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const SignIn = () => {
     const handleGoogleSignIn = () => {
         googleSingIn()
         .then(()=>{
-            navigate('/')
+            navigate(location.state?`${location.state}`:'/')
         })
         .catch(error => {
             console.log(error)

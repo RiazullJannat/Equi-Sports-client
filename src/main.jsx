@@ -15,6 +15,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import SignIn from './components/Pages/SignIn.jsx';
 import SignUp from './components/Pages/SignUp.jsx';
 import Error from './components/Pages/Error.jsx';
+import Details from './components/Pages/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/allEquipments',
-        element: <AllEquipments></AllEquipments>
+        element: <AllEquipments></AllEquipments>,
+        loader:()=>fetch('http://localhost:4000/allEquipments')
       },
       {
         path: '/addEquipments',
@@ -45,6 +47,11 @@ const router = createBrowserRouter([
       {
         path:'signUp',
         element:<SignUp></SignUp>
+      },
+      {
+        path:'/allEquipments/:id',
+        element:<Details></Details>,
+        loader:({params})=>fetch(`http://localhost:4000/allEquipments/${params.id}`)
       }
     ]
   },

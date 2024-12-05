@@ -15,9 +15,7 @@ const Private = ({children}) => {
         return children
     }
     return(
-        <div>
-            apatoto error khau 
-        </div>
+        <Navigate state={location.pathname} to={'/signIn'}></Navigate>
     )
 };
 Private.propTypes = {
