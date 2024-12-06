@@ -18,7 +18,7 @@ const Update = () => {
         const stockStatus = form.get('stockStatus')
         const updatedData = {userName, imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus }
         
-        fetch(`http://localhost:4000/MyEquipments/update/${id}`, {
+        fetch(`https://sports-equipments-server.vercel.app/MyEquipments/update/${id}`, {
             method:'POST',
             headers:{
                 'Content-Type' : 'application/json'

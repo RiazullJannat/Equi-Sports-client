@@ -7,7 +7,7 @@ const MyEquipments = () => {
     const { user } = useContext(AuthContext);
     const [data, setData] = useState();
     useEffect(() => {
-        fetch('http://localhost:4000/MyEquipments', {
+        fetch('https://sports-equipments-server.vercel.app/MyEquipments', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -20,7 +20,7 @@ const MyEquipments = () => {
             })
     }, [user.email])
     const handleDelete = (id) => {
-        fetch('http://localhost:4000/MyEquipments/delete',{
+        fetch('https://sports-equipments-server.vercel.app/MyEquipments/delete',{
             method:'DELETE',
             headers: {
                 'content-type': 'application/json',

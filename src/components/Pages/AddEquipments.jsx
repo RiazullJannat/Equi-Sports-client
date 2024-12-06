@@ -19,7 +19,7 @@ const AddEquipments = () => {
         const email = user.email
         const userName = user.displayName 
         const product = {userName, email, imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus }
-        fetch('http://localhost:4000/addEquipments', {
+        fetch('https://sports-equipments-server.vercel.app/addEquipments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
