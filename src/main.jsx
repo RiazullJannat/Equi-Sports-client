@@ -16,6 +16,7 @@ import SignIn from './components/Pages/SignIn.jsx';
 import SignUp from './components/Pages/SignUp.jsx';
 import Error from './components/Pages/Error.jsx';
 import Details from './components/Pages/Details.jsx';
+import Update from './components/Pages/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path:'/allEquipments/:id',
         element:<Private><Details></Details></Private>,
         loader:({params})=>fetch(`http://localhost:4000/allEquipments/${params.id}`)
+      }, 
+      {
+        path:'/myEquipments/update/:id',
+        element:<Private><Update></Update></Private>
       }
     ]
   },
