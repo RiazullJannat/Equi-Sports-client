@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Categories from "../Categories";
+import ItemCart from "../ItemCart";
 const Home = () => {
     const data = useLoaderData();
     return (
@@ -34,8 +35,10 @@ const Home = () => {
             <div className="">
                 <Categories></Categories>
             </div>
+            <div>
+                <ItemCart></ItemCart>
+            </div>
         </div >
     );
 };
-
 export default Home;

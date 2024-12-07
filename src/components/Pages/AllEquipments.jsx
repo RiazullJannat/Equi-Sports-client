@@ -12,6 +12,7 @@ const AllEquipments = () => {
                         <tr>
                             <th>Ser.</th>
                             <th>Name</th>
+                            <th>Added by</th>
                             <th>Rating/Category</th>
                             <th>Price</th>
                             <th>stockStatus</th>
@@ -39,6 +40,7 @@ const AllEquipments = () => {
                                         </div>
                                     </div>
                                 </td>
+                                <td> {equipment.userName?equipment.userName:equipment.email}</td>
                                 <td>
                                     {equipment.rating}*
                                     <br />
@@ -54,16 +56,6 @@ const AllEquipments = () => {
                             </tr>)
                         }
                     </tbody>
-                    {/* foot */}
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
