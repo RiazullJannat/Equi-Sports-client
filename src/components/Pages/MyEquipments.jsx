@@ -3,11 +3,13 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loading from "../Loading";
 
 const MyEquipments = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading, setLoading } = useContext(AuthContext);
     const [data, setData] = useState();
     useEffect(() => {
+        setLoading(true)
         fetch('https://sports-equipments-server.vercel.app/MyEquipments', {
             method: 'GET',
             headers: {
@@ -17,9 +19,10 @@ const MyEquipments = () => {
         })
             .then(res => res.json())
             .then(data => {
+                setLoading(false)
                 setData(data)
             })
-    }, [user.email])
+    }, [setLoading, user.email])
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -52,6 +55,9 @@ const MyEquipments = () => {
                     })
             }
         })
+    }
+    if(loading){
+        return <Loading></Loading>
     }
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
