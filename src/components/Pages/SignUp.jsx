@@ -26,23 +26,25 @@ const SignUp = () => {
                 updateUser({ displayName: name, photoURL: photo })
                     .then(() => {
                         navigate('/');
+                        toast.success('Successfully SignUp')
                     })
                     .catch(error => {
-                        console.log(error)
+                        toast.error(error.message)
                     })
             })
             .catch(error => {
                 setLoading(false)
-                console.log(error)
+                toast.error(error)
             })
     }
     const handleGoogleSignIn = () => {
         googleSingIn()
             .then(()=>{
                 navigate('/')
+                toast.success('Successfully SignUp')
             })
             .catch(error=>{
-                console.log(error)
+                toast.error(error.message)
             })
     }
     return (
@@ -114,7 +116,7 @@ const SignUp = () => {
                     <FcGoogle className="text-xl" />
                     Login with Google
                 </button>
-                <p className="text-center">All ready have an account? <Link to={'/auth/signIn'} className="text-red-600 font-semibold">Login</Link></p>
+                <p className="text-center">All ready have an account? <Link to={'/signIn'} className="text-red-600 font-semibold">Login</Link></p>
             </div>
         </div>
     );

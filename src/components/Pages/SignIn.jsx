@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
     const location = useLocation();
@@ -20,18 +21,20 @@ const SignIn = () => {
                 setUser(res.user);
                 event.target.reset();
                 navigate('/')
+                toast.success('Sign in successful')
             })
             .catch(error=>{
-                console.log(error)
+                toast.error(error.message)
             })
     }
     const handleGoogleSignIn = () => {
         googleSingIn()
         .then(()=>{
             navigate(location.state?`${location.state}`:'/')
+            toast.success("Sign in successful.")
         })
         .catch(error => {
-            console.log(error)
+            toast.error(error.message)
         })
     }
     return (
@@ -78,7 +81,7 @@ const SignIn = () => {
                     <FcGoogle className="text-xl" />
                     Login with Google
                 </button>
-                <p className="text-center my-2">Don&apos;t  have an account? <Link to={'/auth/signUp'} className="text-red-600 font-semibold">SignUp</Link></p>
+                <p className="text-center my-2">Don&apos;t  have an account? <Link to={'/signUp'} className="text-red-600 font-semibold">SignUp</Link></p>
             </div>
         </div>
     );

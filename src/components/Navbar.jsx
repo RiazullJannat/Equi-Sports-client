@@ -61,6 +61,17 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {links}
+                        {
+                            user ? '' : <div className="flex gap-3 ">
+                                <NavLink to="/signIn" className="">
+                                    SignIn
+                                </NavLink>
+                                or
+                                <NavLink to="/signUp" className="">
+                                    SignUp
+                                </NavLink>
+                            </div >
+                        }
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl">Sports Equipments</a>
@@ -86,7 +97,7 @@ const Navbar = () => {
                             <li onClick={logout} className="btn z-50">Log Out</li>
                         </ul>
                     </div> :
-                        <div className="flex gap-3 ">
+                        <div className="md:flex gap-3 hidden sm:block">
                             <NavLink to="/signIn" className="">
                                 SignIn
                             </NavLink>

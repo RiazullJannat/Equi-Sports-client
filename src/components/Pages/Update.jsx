@@ -42,7 +42,7 @@ const Update = () => {
                                 title:"Update Successful",
                                 text:"Your items updated.",
                                 icon:'success'
-                            })d
+                            })
                         }
                     })
             }
