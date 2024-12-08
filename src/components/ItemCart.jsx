@@ -9,7 +9,7 @@ const ItemCart = () => {
                 setEquipments(data)
                 console.log(data)
             })
-    })
+    },[])
     // imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus 
     return (
         equipments.map(item => <div className="card lg:card-side bg-base-100 shadow-xl border my-5" key={item._id}>

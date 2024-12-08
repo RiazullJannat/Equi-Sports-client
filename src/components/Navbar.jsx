@@ -1,18 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
-    const [theme, setTheme] = useState(localStorage.getItem('theme')?localStorage.getItem('theme'):'light');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('theme', theme);
         const localTheme = localStorage.getItem('theme')
         document.querySelector('html').setAttribute('data-theme', localTheme)
-    },[theme])
+    }, [theme])
     const onToggle = (e) => {
-        e.target.checked?setTheme('dark'):setTheme('light')
+        e.target.checked ? setTheme('dark') : setTheme('light')
     }
 
     // Define navigation links
@@ -75,9 +75,11 @@ const Navbar = () => {
             <div className="navbar-end justify-end flex items-center gap-4">
                 {
                     user ? <div className="dropdown">
-                        <button tabIndex={0} className="p-2 btn-ghost border-3 border-red-600 rounded-full">
-                            <img className="h-14 w-14 rounded-full" src={user.photoURL ? user.photoURL : "https://i.ibb.co.com/GtRSfPc/profile.png"} />
-                        </button>
+                        <div className="tooltip  tooltip-bottom" data-tip={user.displayName}>
+                            <button tabIndex={0} className="p-2 btn-ghost border-3 border-red-600 rounded-full">
+                                <img className="h-14 w-14 rounded-full" src={user.photoURL ? user.photoURL : "https://i.ibb.co.com/GtRSfPc/profile.png"} />
+                            </button>
+                        </div>
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
@@ -97,11 +99,11 @@ const Navbar = () => {
                 <div className="">
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
-                        <input 
-                        type="checkbox" 
-                        onChange={onToggle}
-                        checked={theme==='light'?false:true}
-                         />
+                        <input
+                            type="checkbox"
+                            onChange={onToggle}
+                            checked={theme === 'light' ? false : true}
+                        />
 
                         {/* sun icon */}
                         <svg

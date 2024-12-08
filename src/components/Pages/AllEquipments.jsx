@@ -1,10 +1,20 @@
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllEquipments = () => {
     const allEquipments = useLoaderData();
+    const [all, setAll] = useState(allEquipments);
+
+    function handleSort() {
+        const sortedData = [...all].sort((a, b) =>parseFloat(a.price) - parseFloat(b.price))
+        setAll(sortedData)
+    }
     return (
         <div>
-            <h3>All Equipments</h3>
+            <div className="flex justify-between">
+                <h3>All Equipments</h3>
+                <button className="btn-ghost btn" onClick={handleSort}>Sort by Low to High</button>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -22,9 +32,9 @@ const AllEquipments = () => {
                     <tbody>
                         {/* row  */}
                         {
-                            allEquipments.map((equipment, ind) => <tr key={equipment._id}>
+                            all.map((equipment, ind) => <tr key={equipment._id}>
                                 <th>
-                                    {ind+1}
+                                    {ind + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center gap-3">
@@ -40,7 +50,7 @@ const AllEquipments = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td> {equipment.userName?equipment.userName:equipment.email}</td>
+                                <td> {equipment.userName ? equipment.userName : equipment.email}</td>
                                 <td>
                                     {equipment.rating}*
                                     <br />
