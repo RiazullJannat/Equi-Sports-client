@@ -6,7 +6,8 @@ import Swal from "sweetalert2";
 import Loading from "../Loading";
 
 const MyEquipments = () => {
-    const { user, loading, setLoading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const [loading, setLoading] = useState(true)
     const [data, setData] = useState();
     useEffect(() => {
         setLoading(true)

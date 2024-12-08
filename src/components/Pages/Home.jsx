@@ -11,6 +11,7 @@ import Animation from "../../assets/Animation - 1733622367050.json"
 import Lottie from "lottie-react";
 import { Bounce, Fade } from "react-awesome-reveal";
 import TopDeal from "../TopDeal";
+import BrandsCarousel from "../BrandsCarusel";
 
 const Home = () => {
     const data = useLoaderData();
@@ -51,6 +52,7 @@ const Home = () => {
                 </Bounce>
             </div>
             <TopDeal></TopDeal>
+            <BrandsCarousel></BrandsCarousel>
         </div >
     );
 };
