@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Foldable WalkingPad A1 Pro",
+        "oldPrice": "70,000.00",
+        "newPrice": "65,000.00",
+        "image": "https://i.ibb.co.com/LNx5TPQ/sports-tools.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Walking Pad R1 Pro",
+        "oldPrice": "104,990.00",
+        "newPrice": "99,900.00",
+        "image": "https://i.ibb.co.com/hgNm1Cw/Walking-Pad.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Electric Treadmill Bolt H7",
+        "oldPrice": "49,500.00",
+        "newPrice": "45,990.00",
+        "image": "https://i.ibb.co.com/NV5PTNR/Treadmill.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Electric Treadmill House Fit Spiro 480",
+        "oldPrice": "85,000.00",
+        "newPrice": "84,900.00",
+        "image": "https://i.ibb.co.com/G5LxMDB/8443686.jpg"
+    }
+]

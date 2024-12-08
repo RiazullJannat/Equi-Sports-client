@@ -1,27 +1,26 @@
 [
-    {
+  {
       "id": 1,
       "title": "Our Exclusive Treadmills Best Collection",
       "description": "Shop a wide selection of treadmills at Sports World. Our treadmills are ideal for various fitness goals, ranging from weight loss to performance training. With advanced features like incline control and heart rate monitoring, they ensure a premium workout experience. Suitable for home use, semi-commercial gyms, and professional fitness centers.",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg",
+      "image": "https://i.ibb.co.com/mFdPJTc/275217-P5-ZS4-B-540.jpg",
       "buttonText": "VIEW COLLECTIONS",
       "buttonLink": "/collections/treadmills"
-    },
-    {
+  },
+  {
       "id": 2,
       "title": "Affordable Home Treadmills",
       "description": "Explore our budget-friendly treadmills designed for effective home workouts. These machines combine affordability with durability, ensuring a great value for money. Lightweight and compact, they fit easily into any home space. Perfect for staying active without compromising on space or quality.",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg",
+      "image": "https://i.ibb.co.com/CWGCjnP/116006-OOTITV-21.jpg",
       "buttonText": "SHOP NOW",
       "buttonLink": "/collections/home-treadmills"
-    },
-    {
+  },
+  {
       "id": 3,
       "title": "Professional Gym Treadmills",
       "description": "Our high-performance treadmills are tailored for professional gyms and fitness centers. Built with advanced engineering, they handle heavy usage with ease. Featuring powerful motors, spacious running decks, and interactive displays, these treadmills cater to the needs of serious athletes and trainers.",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg",
+      "image": "https://i.ibb.co.com/Lzw7fg0/437.jpg",
       "buttonText": "EXPLORE MORE",
       "buttonLink": "/collections/professional-treadmills"
-    }
-  ]
-  
+  }
+]

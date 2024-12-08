@@ -1,63 +1,62 @@
 [
-    {
-      "id": 1,
-      "title": "Treadmill",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 2,
-      "title": "Walking Pad",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 3,
-      "title": "Exercise Cycle",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 4,
-      "title": "Gym Equipment",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 5,
-      "title": "Indoor Games",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 6,
-      "title": "Sports",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 7,
-      "title": "Yoga Item",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 8,
-      "title": "Sports Wear",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 9,
-      "title": "Swimming Item",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 10,
-      "title": "Dumbbells",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 11,
-      "title": "Personal Fitness",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    },
-    {
-      "id": 12,
-      "title": "Basketball",
-      "image": "https://i.ibb.co/TLxFWc7/pexels-willpicturethis-1954524.jpg"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Treadmill",
+    "image": "https://i.ibb.co.com/LNx5TPQ/sports-tools.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Walking Pad",
+    "image": "https://i.ibb.co.com/hgNm1Cw/Walking-Pad.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Exercise Cycle",
+    "image": "https://i.ibb.co.com/NV5PTNR/Treadmill.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Gym Equipment",
+    "image": "https://i.ibb.co.com/G5LxMDB/8443686.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Indoor Games",
+    "image": "https://i.ibb.co.com/vBCvcmT/5353188.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Sports",
+    "image": "https://i.ibb.co.com/h7fFVnh/4934595.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Yoga Item",
+    "image": "https://i.ibb.co.com/WHP63WZ/88y-c9nm8ub2elkmop35e8mj0cg.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Sports Wear",
+    "image": "https://i.ibb.co.com/LNx5TPQ/sports-tools.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Swimming Item",
+    "image": "https://i.ibb.co.com/hgNm1Cw/Walking-Pad.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Dumbbells",
+    "image": "https://i.ibb.co.com/NV5PTNR/Treadmill.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Personal Fitness",
+    "image": "https://i.ibb.co.com/G5LxMDB/8443686.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Basketball",
+    "image": "https://i.ibb.co.com/vBCvcmT/5353188.jpg"
+  }
+]

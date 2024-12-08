@@ -10,6 +10,7 @@ import ItemCart from "../ItemCart";
 import Animation from "../../assets/Animation - 1733622367050.json"
 import Lottie from "lottie-react";
 import { Bounce, Fade } from "react-awesome-reveal";
+import TopDeal from "../TopDeal";
 
 const Home = () => {
     const data = useLoaderData();
@@ -49,6 +50,7 @@ const Home = () => {
                     <ItemCart></ItemCart>
                 </Bounce>
             </div>
+            <TopDeal></TopDeal>
         </div >
     );
 };
