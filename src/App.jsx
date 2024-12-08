@@ -7,11 +7,13 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="container mx-auto overflow-hidden">
-      <Navbar></Navbar>
-      <ToastContainer></ToastContainer>
-      <Outlet></Outlet>
-      <Footer></Footer>
+    <div >
+      <div className="container mx-auto overflow-hidden">
+        <Navbar></Navbar>
+        <ToastContainer></ToastContainer>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     </div>
   )
 }

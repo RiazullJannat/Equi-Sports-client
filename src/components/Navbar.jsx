@@ -77,7 +77,7 @@ const Navbar = () => {
                     user ? <div className="dropdown">
                         <div className="tooltip  tooltip-bottom" data-tip={user.displayName}>
                             <button tabIndex={0} className="p-2 btn-ghost border-3 border-red-600 rounded-full">
-                                <img className="h-14 w-14 rounded-full" src={user.photoURL ? user.photoURL : "https://i.ibb.co.com/GtRSfPc/profile.png"} />
+                                <img className="h-8 w-8 md:h-14 md:w-14 rounded-full" src={user.photoURL ? user.photoURL : "https://i.ibb.co.com/GtRSfPc/profile.png"} />
                             </button>
                         </div>
                         <ul

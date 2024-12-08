@@ -7,10 +7,17 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Categories from "../Categories";
 import ItemCart from "../ItemCart";
+import Animation from "../../assets/Animation - 1733622367050.json"
+import Lottie from "lottie-react";
+import { Bounce, Fade } from "react-awesome-reveal";
+
 const Home = () => {
     const data = useLoaderData();
     return (
         <div>
+            <div className="w-80 h-40 flex mx-auto">
+                <Lottie animationData={Animation} loop={true} />
+            </div>
             <div className="my-10">
                 <h1 className="text-5xl font-extrabold text-center">Sports Equipments</h1>
                 <Swiper
@@ -33,10 +40,14 @@ const Home = () => {
                 </Swiper>
             </div>
             <div className="">
-                <Categories></Categories>
+                <Fade duration={2000}>
+                    <Categories></Categories>
+                </Fade>
             </div>
             <div>
-                <ItemCart></ItemCart>
+                <Bounce duration={2000}>
+                    <ItemCart></ItemCart>
+                </Bounce>
             </div>
         </div >
     );

@@ -13,7 +13,7 @@ const ItemCart = () => {
     // imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus 
     return (
         equipments.map(item => <div className="card lg:card-side bg-base-100 shadow-xl border my-5" key={item._id}>
-            <figure className="w-1/2">
+            <figure className="md:w-1/2">
                 <img
                     src={item.imageUrl}
                     alt={item.itemName} />
