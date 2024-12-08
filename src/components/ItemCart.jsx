@@ -7,7 +7,6 @@ const ItemCart = () => {
             .then(res => res.json())
             .then(data => {
                 setEquipments(data)
-                console.log(data)
             })
     },[])
     // imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus 
@@ -18,13 +17,13 @@ const ItemCart = () => {
                     src={item.imageUrl}
                     alt={item.itemName} />
             </figure>
-            <div className="card-body">
+            <div className="card-body flex justify-center items-center">
                 <div className="">
-                    <div>
+                    <div className="my-5">
                         <h2 className="card-title">{item.itemName}</h2>
                         <p>{item.description}</p>
                     </div>
-                    <div>
+                    <div className="">
                         <h3>Price: {item.price}</h3>
                         <p>Category: {item.category}</p>
                         <p>Stock: {item.stockStatus}</p>

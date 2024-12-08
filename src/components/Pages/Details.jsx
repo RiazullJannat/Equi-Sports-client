@@ -12,6 +12,7 @@ const Details = () => {
                     <div className="card-body md:w-1/2">
                         <h2 className="card-title md:text-5xl">{item.itemName}</h2>
                         <p>{item.description}</p>
+                        
                         <div className="card-actions justify-end">
                             <Link to="/"><button className="btn glass btn-ghost">Back to Home</button></Link>
                         </div>

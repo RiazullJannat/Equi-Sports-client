@@ -61,7 +61,7 @@ const MyEquipments = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-9">
             {
                 data?.map(item =>
                     <div className="card bg-base-100 shadow-xl" key={item._id}>

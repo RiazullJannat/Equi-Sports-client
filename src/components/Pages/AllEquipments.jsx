@@ -10,9 +10,9 @@ const AllEquipments = () => {
         setAll(sortedData)
     }
     return (
-        <div>
+        <div className="my-9">
             <div className="flex justify-between">
-                <h3>All Equipments</h3>
+                <h3 className="font-bold text-4xl my-4">All Equipments</h3>
                 <button className="btn-ghost btn" onClick={handleSort}>Sort by Low to High</button>
             </div>
             <div className="overflow-x-auto">

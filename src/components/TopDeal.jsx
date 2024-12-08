@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const TopDeal = () => {
     const [products, setProducts] = useState([]);
@@ -7,11 +8,10 @@ const TopDeal = () => {
         fetch('./topDeal.json')
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);  // You can keep this for debugging
                 setProducts(data);  // Update state with fetched data
             })
             .catch((error) => {
-                console.error("Error fetching the products data:", error);
+                toast.error(error.message);
             });
     }, []);
 
