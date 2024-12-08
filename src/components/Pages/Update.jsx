@@ -1,8 +1,9 @@
 import { useLocation, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
     const location = useLocation();
-    const {id} = useParams();
+    const { id } = useParams();
     const { userName, email, imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus } = location.state;
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,24 +17,45 @@ const Update = () => {
         const customization = form.get('customization')
         const processingTime = form.get('processingTime')
         const stockStatus = form.get('stockStatus')
-        const updatedData = {userName, imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus }
-        
-        fetch(`https://sports-equipments-server.vercel.app/MyEquipments/update/${id}`, {
-            method:'POST',
-            headers:{
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(updatedData)
+        const updatedData = { userName, imageUrl, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to update this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Update it!"
+        }).then(result => {
+            if (result.isConfirmed) {
+                fetch(`https://sports-equipments-server.vercel.app/MyEquipments/update/${id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedData)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount) {
+                            Swal.fire({
+                                title:"Update Successful",
+                                text:"Your items updated.",
+                                icon:'success'
+                            })d
+                        }
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => console.log(data))
+
+
 
     }
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="card w-full max-w-4xl shadow-xl p-6">
                 <h2 className=" mb-4 text-5xl font-extrabold">Update item</h2>
-                <h4 className="text-4xl">Item was added by: {userName?userName:''} ({email})</h4>
+                <h4 className="text-4xl">Item was added by: {userName ? userName : ''} ({email})</h4>
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Image URL */}

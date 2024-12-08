@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div >
+    <div>
       <div className="container mx-auto overflow-hidden">
         <Navbar></Navbar>
         <ToastContainer></ToastContainer>

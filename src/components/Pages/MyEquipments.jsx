@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyEquipments = () => {
     const { user } = useContext(AuthContext);
@@ -20,22 +21,37 @@ const MyEquipments = () => {
             })
     }, [user.email])
     const handleDelete = (id) => {
-        fetch('https://sports-equipments-server.vercel.app/MyEquipments/delete',{
-            method:'DELETE',
-            headers: {
-                'content-type': 'application/json',
-                'id': id
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(result => {
+            if (result.isConfirmed) {
+                fetch('https://sports-equipments-server.vercel.app/MyEquipments/delete', {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json',
+                        'id': id
+                    }
+                })
+                    .then(res => res.json())
+                    .then(response => {
+                        if (response.deletedCount) {
+                            const remaining = data.filter(item => item._id !== id);
+                            setData(remaining)
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
             }
         })
-            .then(res => res.json())
-            .then(response => {
-                if(response.deletedCount){
-                    const remaining = data.filter(item => item._id !==id);
-                    setData(remaining)
-                    alert('deleted success.')
-                    
-                }
-            })
     }
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
