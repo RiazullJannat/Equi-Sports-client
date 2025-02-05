@@ -1,56 +1,94 @@
-# EquiSports - Sports Equipment Store
 
-**EquiSports** is a responsive online platform designed for sports enthusiasts to browse, purchase, and review a wide variety of sports accessories, including gear and apparel. It features user authentication, product management, and various other features to enhance the user experience.
+# Equi-Store - Firebase React Project
+![Equi Store Application Screenshot](./src/assets/equi-store.png)
 
-### [Live Site](https://assignment-10-d1cd0.web.app)
-
----
+## Project Description
+This project is built using React, Firebase, and other modern front-end libraries and tools like Tailwind CSS, Vite, and DaisyUI. The application allows users to interact with Firebase services such as authentication and data storage. It also features animations and dynamic visual effects with the help of Lottie and TSParticles.
 
 ## Features
-- **Responsive Design:** Fully responsive for mobile, tablet, and desktop devices.
-- **User Authentication:** Supports login, registration, and third-party authentication methods (Google).
-- **Add and Manage Products:** Users can add their own equipment, view their equipment list, and update or delete them.
-- **Product Sorting:** Sort sports equipment by price in ascending or descending order.
-- **Dark/Light Theme Toggle:** Implement dark/light theme for better user experience.
-- **Interactive Components:** Includes Lottie animations, React Tooltip, and React Awesome Reveal for interactive UI elements.
-- **Private Routes:** Certain routes are protected and only accessible by authenticated users.
-- **Loading Spinner:** Display a loading spinner while fetching data from the server.
-- **404 Page:** Custom error page for non-existing routes.
+- **Firebase Authentication**: User sign-up and login functionality.
+- **Firebase Firestore**: Store and manage application data.
+- **Animations**: Use of Lottie animations for a dynamic user experience.
+- **Particles Effects**: Integration of TSParticles for interactive background effects.
+- **Responsive Design**: Optimized for mobile and desktop with Tailwind CSS and DaisyUI components.
+- **User Notifications**: Toast notifications via `react-toastify`.
+- **Modal Alerts**: Sweet alert integration for error handling and success messages.
 
----
+## Tech Stack
+- **Frontend**: React, React Router DOM, React Icons
+- **Styling**: Tailwind CSS, DaisyUI
+- **State Management**: React Context (or local state)
+- **Animation**: Lottie, TSParticles
+- **Firebase**: Firestore, Authentication
+- **UI Enhancements**: SweetAlert2, react-toastify, react-awesome-reveal
+- **Build Tool**: Vite
+- **Code Quality**: ESLint for linting
 
-## Technologies Used
-- **Frontend:** React, React Router, Tailwind CSS, DaisyUI, SweetAlert2
-- **Backend:** Node.js, Express, MongoDB
-- **Authentication:** Firebase Authentication (Email, Google, GitHub)
-- **Deployment:** Client-side hosted on Netlify, Server-side hosted on Vercel
-- **Other Packages:** Lottie React, React Awesome Reveal, React Tooltip
+## Installation
 
----
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/your-username/assignment-10.git
+    ```
 
-## Pages
+2. Navigate to the project folder:
+    ```bash
+    cd assignment-10
+    ```
 
-### 1. **Home Page**
-- Contains Navbar, Banner/Slider, Product Section, Sports Categories, and Footer.
-- Displays the latest products with a "View Details" button.
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-### 2. **Add Equipment (Private Route)**
-- Form to add new equipment (image, name, category, price, etc.) to the database.
-- Fields are auto-filled with the logged-in user's details.
+4. Create a `.env` file in the root of the project and add the Firebase configuration keys as shown below:
 
-### 3. **All Sports Equipment Page**
-- Displays all available equipment in a table format.
-- Each item has a "View Details" button to redirect to the item’s detailed page.
+    ```bash
+    VITE_apiKey=YOUR_FIREBASE_API_KEY
+    VITE_authDomain=YOUR_FIREBASE_AUTH_DOMAIN
+    VITE_projectId=YOUR_FIREBASE_PROJECT_ID
+    VITE_storageBucket=YOUR_FIREBASE_STORAGE_BUCKET
+    VITE_messagingSenderId=YOUR_FIREBASE_MESSAGING_SENDER_ID
+    VITE_appId=YOUR_FIREBASE_APP_ID
+    ```
 
-### 4. **View Details Page (Private Route)**
-- Shows detailed information about a specific item in a card format.
-  
-### 5. **My Equipment List (Private Route)**
-- Displays all equipment added by the logged-in user.
-- Includes options to update and delete each item.
-  
-### 6. **Update Page (Private Route)**
-- Allows users to update the details of an existing product they added.
+5. Run the project locally:
+    ```bash
+    npm run dev
+    ```
 
-### 7. **404 Page**
-- Custom error page for undefined routes.
+6. The application will be live on [http://localhost:5173](http://localhost:5173).
+
+## Firebase Configuration
+Ensure that your Firebase project is properly configured with the following Firebase services:
+- **Authentication**: Enable Email/Password sign-in method.
+- **Firestore**: Set up your Firestore database to store data as per your application’s requirements.
+
+### Example Firebase configuration:
+
+```js
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId: import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId: import.meta.env.VITE_messagingSenderId,
+    appId: import.meta.env.VITE_appId
+};
+```
+
+## Development
+
+- To lint your code, run:
+    ```bash
+    npm run lint
+    ```
+
+- To build the project for production:
+    ```bash
+    npm run build
+    ```
+
+## Contributions
+
+Feel free to fork this project and contribute by submitting pull requests or opening issues if you find any bugs.
